@@ -29,7 +29,11 @@ const stats = document.querySelector("#stats li:nth-child(5)");
 function showObjects() {
 	showInventory(myObjects, objects, "objects")
 }
+function showWeapons(){
+	showInventory(myWeapons, inventory, "weapons")
 
+	
+}
 function showInventory(container, items, listName){
 	console.log(myObjects)
 	let inventoryList = document.createElement("ul");
