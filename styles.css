@@ -87,8 +87,8 @@ transition: 0.3s;
 
 #objects{
   background-color: white;
-  width: 100px;
-  margin-left: -50px;
+  width: 70px;
+  
 }
 
 #objects li{
@@ -98,7 +98,10 @@ transition: 0.3s;
 
 #weapons{
   background-color: white;
-  width: 100px;
+  width: 70px;
+  position: relative;
+  left:110px;
+  
 }
 
 #weapons li{

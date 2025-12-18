@@ -43,12 +43,16 @@ const stats = document.querySelector("#stats li:nth-child(5)");
 function showObjects() {
 	showInventory(myObjects, objects, "objects")
 }
+function showWeapons(){
+	console.log(currentWeapon)
+	showInventory(myWeapons, buildWeapons(), "weapons")
 
+}
 function showInventory(container, items, listName){
 	console.log(myObjects)
 	let inventoryList = document.createElement("ul");
 	inventoryList.id = listName;
-	myObjects.addEventListener('click', (event) => {
+	container.addEventListener('click', (event) => {
 		inventoryList.style.display = "none";
 		
 	});
@@ -59,6 +63,13 @@ function showInventory(container, items, listName){
 		inventoryList.appendChild(newItem);
 	}
 	container.appendChild(inventoryList);
+}
+function buildWeapons(){
+	let w = [];
+	for(let weapon = 0; weapon<weapons.length;weapon++){
+		w.push(weapons[weapon].name)
+	}
+	return w;
 }
 
 const weapons = [
