@@ -15,6 +15,7 @@ const myObjects = document.querySelector("#stats li:nth-child(4)");
 const myWeapons = document.querySelector("#stats li:nth-child(5)");
 const stats = document.querySelector("#stats li:nth-child(5)");
 const infoBox = document.getElementById('infoBox');
+
 function showObjects() {
 	showInventory(myObjects, objects, "objects");
 	
@@ -46,6 +47,7 @@ function showInventory(container, items, listName){
 	}
 	container.appendChild(inventoryList);
 }
+
 function buildWeapons(){
 	let w = [];
 	for(let weapon = 0; weapon<player.weapons.length;weapon++){
@@ -53,7 +55,6 @@ function buildWeapons(){
 	}
 	return w;
 }
-
 
 // initialize buttons
 button1.onclick = goStore;
