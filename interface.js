@@ -21,6 +21,7 @@ const goShow= document.getElementById("goShow");
 setUp();
 function setUp(){
 	go.id="go";
+	createPlayerPage()
 	showPages();
 }
 function showObjects() {
@@ -33,13 +34,11 @@ function showName(){
 function showWeapons(){
 	console.log(currentWeapon)
 	showInventory(myWeapons, buildWeapons(), "weapons")
-}	
-function showPages(){//working on this//
+}
+function showPages(){
 	document.getElementById("main").style.display="block";
 	document.getElementById("admin").style.display="none";
 	document.getElementById("player").style.display="none";
-	//let pages=["main", "admin", "player"];
-
 	let pages=[["main", goMain],["admin", goAdmin],["player", goPlayer]];
 
 	for (let i = 0; i < pages.length; i++){
