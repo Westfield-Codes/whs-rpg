@@ -34,6 +34,12 @@ function createNavCross() {
 		navBox.id = "nav" + i;
 		navCross.appendChild(navBox);
 	}
+	buttonLabels = ["top", "right", "bottom", "left"];
+	const places = locations.map(data => new Location(data.index, data.locName, data.coords));
+	navButtons = [];
+	console.log(places[0].getName())
+	console.log(player.getCurrentLocation());
+	console.log(player.getCurrentCoords());
 }
 
 function showObjects() {
@@ -80,17 +86,6 @@ button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
 
-function goStore() {
-    update(locations[1]);
-}
-
-function goTown() {
-    update(locations[0]);
-}
-
-function goCave() {
-    update(locations[2]);
-}
 function update(location) {
     monsterStats.style.display = "none";
 	button1.innerText = location["button text"][0];
