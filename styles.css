@@ -138,11 +138,6 @@ transition: 0.3s;
 #main, #player{
   display:none;
 }
-.red{
-  width:200px;
-  height:200px;
-  background-color: red;
-}
 #controls{
   position:relative;
 }
@@ -160,8 +155,23 @@ transition: 0.3s;
   display:none;
   background-color: white;
 }
-#playerPage{
-  background-color:rgb(202, 177, 130);
-  border:3px dashed black;
-  margin-top:20px;
+
+#playerPage {
+  clear: both;
+  background-color: rgb(202, 177, 130);
+  border: 3px dashed rgb(148, 129, 85);;
+  margin-top: 20px;
+  padding: 20px;
+   text-align: center;
+}
+
+#playerPicture {
+  border: 3px dashed rgb(148, 129, 85);
+  width:300px;
+}
+#playerPageName{
+  font-size:40px;
+}
+#player{
+  height:1000px;
 }
