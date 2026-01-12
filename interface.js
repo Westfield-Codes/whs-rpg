@@ -21,8 +21,18 @@ const goShow= document.getElementById("goShow");
 setUp();
 function setUp(){
 	go.id="go";
-	
+	goButtons();
 	showPages();
+}
+function goButtons(){
+	let pages=[["main", goMain],["admin", goAdmin],["player", goPlayer]];
+
+	for (let i = 0; i < pages.length; i++){
+		let newItem = document.createElement("li");
+		newItem.textContent = pages[i][0];
+		newItem.addEventListener("click", pages[i][1] )
+		go.appendChild(newItem);
+	}
 }
 function showObjects() {
 	showInventory(myObjects, objects, "objects");
@@ -41,14 +51,6 @@ function showPages(){
 	document.getElementById("main").style.display="block";
 	document.getElementById("admin").style.display="none";
 	document.getElementById("player").style.display="none";
-	let pages=[["main", goMain],["admin", goAdmin],["player", goPlayer]];
-
-	for (let i = 0; i < pages.length; i++){
-		let newItem = document.createElement("li");
-		newItem.textContent = pages[i][0];
-		newItem.addEventListener("click", pages[i][1] )
-		go.appendChild(newItem);
-	}
 	go.style.display="none";
 	goShow.addEventListener("click" , showGo);
 }
