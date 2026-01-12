@@ -23,6 +23,7 @@ function setUp(){
 	go.id="go";
 	goButtons();
 	showPages();
+  createNavCross();
 }
 function goButtons(){
 	let pages=[["main", goMain],["admin", goAdmin],["player", goPlayer]];
@@ -34,6 +35,27 @@ function goButtons(){
 		go.appendChild(newItem);
 	}
 }
+
+function createNavCross() {
+	document.getElementById("game");
+	let navCross = document.createElement("div");
+	game.appendChild(navCross);
+	navCross.id = "navCross";
+	document.getElementById("navCross");
+	let navBox;
+	for(let i = 0; i < 4; i++){
+		navBox = document.createElement("div");
+		navBox.id = "nav" + i;
+		navCross.appendChild(navBox);
+	}
+	buttonLabels = ["top", "right", "bottom", "left"];
+
+	navButtons = [];
+	console.log(WHS.getName(0))
+	console.log(player.getCurrentLocation());
+	console.log(player.getCurrentCoords());
+}
+
 function showObjects() {
 	showInventory(myObjects, objects, "objects");
 }
@@ -115,17 +137,6 @@ button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
 
-function goStore() {
-    update(locations[1]);
-}
-
-function goTown() {
-    update(locations[0]);
-}
-
-function goCave() {
-    update(locations[2]);
-}
 function update(location) {
     monsterStats.style.display = "none";
 	button1.innerText = location["button text"][0];
@@ -134,5 +145,6 @@ function update(location) {
 	button1.onclick = location["button functions"][0];
 	button2.onclick = location["button functions"][1];
 	button3.onclick = location["button functions"][2];
-    text.innerText = location.text;    
+    text.innerText = location.text;   
+	player.setLocation(locations.indexOf(location)); 
 }
