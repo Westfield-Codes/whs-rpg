@@ -13,7 +13,7 @@ body {
   border-style:solid;
 }
 
-#gameBoard{
+#main{
   width: 1100px;
   margin:auto;
 }
@@ -34,6 +34,56 @@ body {
   margin: 0 auto;
   padding: 10px;
   display:inline-block;
+}
+
+#navCross {
+  width: 100px;
+  margin-right: 8px;
+  border: 5px solid lightgray;
+  background: darkgray;
+  background-image: url('dcross.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center 28px;
+}
+
+#navCross div:nth-child(4){
+  float:right;
+}
+#navCross div:nth-child(3){
+  float:left;
+}
+#navCross div:nth-child(5), #navCross div:nth-child(2){
+  clear:both;
+  text-align:center;
+}
+#navCross div{
+  margin-bottom: 8px;
+  border: 1px solid white;
+  padding: 2px; 
+  background-color:rgba(169,169,169,0.5);
+}
+#navCross div:hover{
+  background-color:rgb(207, 198, 148);
+  transition: 0.5s;
+}
+
+#navCross div:first-child {
+background-color: white;
+border: 1px solid black;
+padding: 2px;
+color: black;
+text-align:center;
+margin-bottom: 10px;
+}
+
+#navCross div:first-child:hover {
+background-color: white;
+}
+
+.clickable{
+  color: blue!important;
+
 }
 
 #controls {
@@ -137,13 +187,39 @@ transition: 0.3s;
 #controls{
   position:relative;
 }
-#go li{
-  border-radius:20px;
+#go {
+  list-style-type:none;
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+#go li {
+  border-radius:2px;
   padding: 2px;
   background-color: white;
   display:block;
-  width:50px;
+  width:60px;
   text-align: center;
+}
+
+#go li:hover {
+  background:gray;
+}
+
+#go li:active {
+  background:yellow;
+}
+
+#go li a {
+  color:black;
+}
+
+#go li a:hover {
+  color:yellow;
+}
+
+#go li a:active {
+  color:blue;
 }
 #go{
   position:absolute;
