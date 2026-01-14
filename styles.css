@@ -29,12 +29,11 @@ body {
 
 #game {
   width: 800px;
-  max-height: 400px;
   background-color: lightgray;
   color: white;
   margin: 0 auto;
   padding: 10px;
-  float:left;
+  display:inline-block;
 }
 
 #controls {
