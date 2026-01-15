@@ -2,6 +2,10 @@ body {
   background-color: darkblue;
 }
 
+button:hover{
+  cursor:pointer;
+}
+
 #text {
   background-color: black;
   color: white;
@@ -66,8 +70,9 @@ body {
   background-color:rgba(169,169,169,0.5);
 }
 #navCross div:hover{
-  background-color:rgb(207, 198, 148);
+  background-color:rgb(165, 124, 91);
   transition: 0.5s;
+  cursor: not-allowed;
 }
 
 #navCross div:first-child {
@@ -81,11 +86,17 @@ margin-bottom: 10px;
 
 #navCross div:first-child:hover {
 background-color: white;
+cursor: default;
 }
 
 .clickable{
   color: blue!important;
 
+}
+
+.clickable:hover{
+  cursor:pointer!important;
+  background-color: white!important;
 }
 
 #controls {
@@ -154,6 +165,7 @@ a{
 #stats li button:nth-child(1):hover{
 background-color: white;
 transition: 0.3s;
+cursor:pointer;
 }
 
 #objects{
