@@ -64,6 +64,10 @@ function createNavCross() {
       }
       navCross.appendChild(navBox);
    }
+	navButtons = [];
+	console.log(WHS.getName(0))
+	console.log(player.getCurrentLocation());
+	console.log(player.getCurrentCoords());
 }
 
 function getNavLocations() {
