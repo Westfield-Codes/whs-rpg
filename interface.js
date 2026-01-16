@@ -71,11 +71,11 @@ function createNavCross() {
 }
 
 function getNavLocations() {
-   let locationNow = player.getCurrentLocation();
-   // let locationMatch = WHS.locations.find(location => location.index === locationNow);
-   // console.log("coords are " + WHS.locations[locationMatch].getCoords());
-   let locationNow = player.currentLocation;
-	let coordsNow = WHS.locations[locationNow].coords;
+   let locationNow = player.getCurrentLocation(); // this is location.index
+   //let locationMatch = WHS.locations.find(location => location.index === locationNow); // this is a location object
+   let locationMatch = WHS.locations.find(location => location.index === -1); // this is a location object
+   console.log("Location match object = " + locationMatch.name);
+	let coordsNow = locationMatch.getCoords();
 	console.log("coords are " + coordsNow);
    let proximals = [
       [0, 1],

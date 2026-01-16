@@ -9,17 +9,23 @@ class Location {
 		// this.npcs = npcs;
 		// this.dialogue = dialogue
   	}
-  getName(){
-	return this.name;
-  }
+	getName(){
+		return this.name;
+  	}
 
-  getText(){
-	return this.text;
-  }
+	getIndex(){
+		return this.index;
+  	}
+
+	getText(){
+		return this.text;
+  	}
   
-    getCoords(){
+	getCoords(){
+		console.log("Coords = "+ this.coords);
     	return this.coords;
-  }
+  	}
+	
 } // End Location Class
 
 /* This is a collection of all the locations which can be referenced from other classes */
