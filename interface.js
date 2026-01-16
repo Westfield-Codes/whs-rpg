@@ -1,4 +1,6 @@
 /* UI Controls */
+const board = document.getElementById("main");
+const game = document.getElementById("game");
 const controls = document.getElementById("controls");
 const button1 = document.querySelector("#controls :nth-child(1)");
 const go = document.getElementById("go");
@@ -17,7 +19,7 @@ const myWeapons = document.querySelector("#stats li:nth-child(5)");
 const stats = document.querySelector("#stats li:nth-child(6)");
 const infoBox = document.getElementById('infoBox');
 const goShow = document.getElementById("goShow");
-const board = document.getElementById("main");
+
 
 setUp();
 function setUp() {
@@ -44,12 +46,9 @@ function goButtons() {
 
 function createNavCross() {
 	let possibles = getNavLocations();
-	let board = document.getElementById("gameBoard");
-	const firstChild = board.firstElementChild;
 	let navCross = document.createElement("div");
 	navCross.id = "navCross";
-	board.insertBefore(navCross, firstChild.nextElementSibling);
-	document.getElementById("navCross")
+	board.appendChild(navCross);
 	let navBox;	
 	buttonLabels = ["Navigation", "forward", "right", "left", "back"];
 	for(let i = 0; i < 5; i++){
