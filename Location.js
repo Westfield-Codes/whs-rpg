@@ -6,8 +6,7 @@ class Location {
 		this.coords = coords;
 		this.text = text;
 		// this.actions = actions;
-		// this.npcs = npcs;
-		// this.dialogue = dialogue
+
   	}
 	getName(){
 		return this.name;
@@ -65,17 +64,17 @@ const locations = [
 		index: -1,
 	 	name: "Main Entrance",
 		coords: [0,0],
-		text: "You are in the main entrance. You've just been let into the school when the receptionist tells you: \n \"We need your help, and quickly too.\" "
 		// "button text": ["Go to store", "Go to cave", "Fight dragon"],
 		// "button functions": [goStore, goCave, fightDragon],
-		},
+		 text: "You are in the main entrance. You've just been let into the school when the receptionist tells you: \n \"We need your help, and quickly too.\" "
+	},
 	{
 		index: 1,
 	 	name: "Front Office",
 		coords: [0,1],
-		text: "The receptionist's stare, waiting for you to do something."
 		// "button text": ["Buy 10 health (10 gold)", "Buy weapon (30 gold)", "Go to town square"],
 		// "button functions": [buyHealth, player.buyWeapon, goTown],
+		 text: "The receptionist's stare, waiting for you to do something."
 	},
 	{
 		index: 2,
@@ -92,7 +91,14 @@ const locations = [
 		text: "You're attacked as you enter the library."
 		// "button text": ["Attack", "Dodge", "Run"],
 		// "button functions": [attack, dodge, goTown],
-		
+		// text: "You're attacked as you enter the library."
+	},
+	{
+		index: 8,
+	 	name: "Cafeteria",
+		coords: [1,-1],
+		text: "You enter the cafeteria. There are many smells coming from the lunch line. There's a noisy table and a quiet student sitting alone.",
+		//buttons : ["Eat Lunch", "Join Group", "Approach Student"]
 	}
 ]
 	// {
@@ -136,17 +142,19 @@ console.log("WHS is created!");
 console.log("First one: " + WHS.locations[0].text);
 
 
-function goStore() {
-    update(locations[1]);
-}
+//function update(pointer) {
+    // monsterStats.style.display = "none";
+	// button1.innerText = location["button text"][0];
+	// button2.innerText = location["button text"][1];
+	// button3.innerText = location["button text"][2];
+	// button1.onclick = location["button functions"][0];
+	// button2.onclick = location["button functions"][1];
+	// button3.onclick = location["button functions"][2];
+	//console.log("trying " + JSON.stringify(pointer.text));
+    //text.innerText = JSON.stringify(WHS.locations[0].text);
+//	player.setLocation(locations.indexOf(location)); 
+//}
 
-function goTown() {
-    update(locations[0]);
-}
-
-function goCave() {
-    update(locations[2]);
-}
 
 
 

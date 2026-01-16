@@ -19,14 +19,28 @@ const myWeapons = document.querySelector("#stats li:nth-child(5)");
 const stats = document.querySelector("#stats li:nth-child(6)");
 const infoBox = document.getElementById('infoBox');
 const goShow = document.getElementById("goShow");
+const board = document.getElementById("main");
+const WHS = new Place('WHS');
+// setup functions
+setUp();
 
 
 setUp();
 function setUp() {
-   update(WHS.locations[0]);
+   
+   locations.forEach(data => {
+      const newPlace = new Location(data.index, data.name, data.coords);
+      WHS.addLocation(newPlace);
+   });
+
+   console.log("WHS is created!");
+   let pointer = WHS.locations[0]
+   console.log("First one: " + JSON.stringify(WHS.locations[0].name));
    goButtons();
    showPages();
    createNavCross();
+   console.log("updating for " + JSON.stringify(WHS.locations[0].name));
+   update(pointer);
 }
 
 function goButtons() {
@@ -42,6 +56,29 @@ function goButtons() {
       newLink.addEventListener("click", pages[i][1]);
 	  newItem.appendChild(newLink);
       go.appendChild(newItem);
+   }
+}
+function createActionButtons() {
+   let locationNow = player.currentLocation;
+   let possibles =  WHSchoices.actions[locationNow].coords; //working here
+   const firstChild = board.firstElementChild;
+   let navCross = document.createElement("div");
+   navCross.id = "navCross";
+   board.prepend(navCross);
+   document.getElementById("navCross")
+   let navBox;
+   buttonLabels = ["Navigation", "forward", "right", "left", "back"];
+   for (let i = 0; i < 5; i++) {
+      navBox = document.createElement("div");
+      navBox.id = "nav" + i;
+      navBox.innerHTML = buttonLabels[i];
+      if (i > 0 && possibles[i - 1] > 0) {
+         navBox.addEventListener("click", (event) => {
+            update(WHS.Locations[possibles[i - 1]]);
+         });
+         navBox.classList.add('clickable');
+      }
+      navCross.appendChild(navBox);
    }
 }
 
