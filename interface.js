@@ -49,12 +49,48 @@ function goButtons() {
 	board.appendChild(navCross);
 }
 
+function createActionButtons() {
+   let locationNow = player.getCurrentLocation();
+   let possibles =  WHSchoices.actions[locationNow].coords; //working here
+   let buttonLabels = [];
+   let actionButton;
+   for (let i = 0; i < possibles.length; i++) {
+      navBox = document.createElement("div");
+      navBox.id = "nav" + i;
+      navBox.innerHTML = buttonLabels[i];
+      if (i > 0 && possibles[i - 1] > 0) {
+         navBox.addEventListener("click", (event) => {
+            update(WHS.Locations[possibles[i - 1]]);
+         });
+         navBox.classList.add('clickable');
+      }
+      navCross.appendChild(navBox);
+   }
+}
+
+function buildActions() {
+   let b = [];
+   currentLocation = player.getCurrentLocation();
+    let locationNow = WHS.locations.find(location => location.index === currentLocation);
+   for (let action = 0; action < locationNow.actions.length; action++) {
+      b.push(locationNow.actions[action].name)
+   }
+   return b;
+}
+
+function showActions() {
+   console.log(buildActions.toString())
+   showInventory(controls, buildActions(), "actions")
+}
+
+
+
 function createNavCross() {
 	let navCross = document.getElementById("navCross");
    navCross.innerHTML = ""; // clear previous buttons
    let possibles = getNavLocations();
 	let navBox;	
-	buttonLabels = ["Navigation", "forward", "right", "left", "back"];
+	buttonLabels = ["Navigation", "forward", "right", "back", "left"];
 	for(let i = 0; i < 5; i++){
 		navBox = document.createElement("div");
 		navBox.id = "nav" + i;
@@ -71,7 +107,7 @@ function createNavCross() {
 }
 
 function getNavLocations() {
-   let locationNow = player.getCurrentLocation(); // this is location.index
+   let locationNow = player.getCurrentLocation(); 
    let locationMatch = WHS.locations.find(location => location.index === locationNow); // this is a location object
 	let coordsNow = locationMatch.getCoords();
    let proximals = [
