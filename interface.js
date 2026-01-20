@@ -27,6 +27,7 @@ function setUp() {
    showPages();
    update(WHS.locations[0].index);
    createNavCross();
+   buildActions();
 }
 
 function goButtons() {
@@ -48,6 +49,32 @@ function goButtons() {
 	navCross.id = "navCross";
 	board.appendChild(navCross);
 }
+
+
+
+function buildActions() {
+   const parentElement = document.getElementById("controls");
+   const firstChild = parentElement.firstElementChild; 
+   if (firstChild) { // delete other buttons
+      parentElement.replaceChildren(firstChild);
+   }
+   let currentLocation = player.getCurrentLocation(); // index of current location
+   let locationNow = WHS.locations.find(location => location.index === currentLocation); // get current location object
+   console.log("Location Now found? " + locationNow.name + " with index "+ locationNow.index);
+   let actionsNow = locationNow.actions; // get actions ID array
+   for (let arrayAction = 0; arrayAction < locationNow.actions.length; arrayAction++) {
+      let actionNow = WHSActions.actions.find(action => action.actId === actionsNow[arrayAction]); // get next matching action object
+      if (actionNow.locId == currentLocation) console.log(actionNow.name + " matches " + currentLocation);
+      let actionButton = document.createElement("button");
+      actionButton.innerHTML = actionNow.name;
+      let method = actionNow.execute;
+      actionButton.addEventListener('click', (event) => method(event));
+      controls.appendChild(actionButton);
+   }
+   console.log("Were buttons built?")
+}
+
+
 
 function createNavCross() {
 	let navCross = document.getElementById("navCross");
@@ -71,7 +98,7 @@ function createNavCross() {
 }
 
 function getNavLocations() {
-   let locationNow = player.getCurrentLocation(); // this is location.index
+   let locationNow = player.getCurrentLocation(); 
    let locationMatch = WHS.locations.find(location => location.index === locationNow); // this is a location object
 	let coordsNow = locationMatch.getCoords();
    let proximals = [
