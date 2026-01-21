@@ -42,20 +42,20 @@ class Action {
     waitOutside(){
         newText =  "You sit on the bench outside, waiting for others to enter. ";
         setTimeout(showText, 2000);
-        waitForOthers.execute();
+        this.waitForOthers();
     }
 
     waitForOthers(){
-        newText += "You wait for a crowd to enter so you can join them and slip inside.";
+        newText += "You wait for a crowd to enter so you can join them and slip inside. ";
         minutes = Math.floor(Math.random()*60)+1;
-        newText += "You wait for " + minutes + " minutes.";
+        newText += "You wait for " + minutes + " minutes. ";
         if (minutes %2 == 0) {
             newText += "Nobody comes. Now what do you do?";
             showText();
         }
         else {
             showText();
-            joinWithOthers.execute();
+            this.joinWithOthers();
         }
     }
 
@@ -64,21 +64,21 @@ class Action {
     hideInside(){
         newText =  "You hang out in the far right corner where the receptionist cannot see you, waiting for others to enter. ";
         setTimeout(showText, 5000);
-        waitForOthers.execute();
+        this.waitForOthers();
     }
 
     joinWithOthers(){
         newText += "A crowd of NHS students returns from a field trip. ";
         newText += "You cast a deception spell to enter them without being noticed. "
         let result = this.attack();
-        newText += "Your spell attack roll is: " + result[0];
-        newText += "The crowd\'s saving throw is: " + result[1];
-        if (result[3]) {
-            newText += "You deceive them and enter into the front hall, slipping away soon after.";
+        newText += "\n\nYour spell attack roll is: " + result[0] + ". \n ";
+        newText += "The crowd\'s saving throw is: " + result[1] + ". \n\n";
+        if (result[2]) {
+            newText += "You deceive them and enter into the front hall, slipping away soon after! ";
         }
         else {
             newText+= "They notice you in the lobby and say, \"Hey you! Get your own damn pass!\"";
-            newText+= "The receptionist calls for security. You run outside.";
+            newText+= "The receptionist calls for security. You run outside. ";
             update(WHS.Locations[0].index);
         }
         showText();
@@ -89,7 +89,7 @@ class Action {
         let result = this.attack();
         newText += "Your attack roll is: " + result[0];
         newText += "The receptionist\'s saving throw is: " + result[1];
-        if (result[3]) {
+        if (result[2]) {
             newText += "She lies in a crumpled heap beneath the window. \nYou reach in and press the button to unlock the door.";
         }
         else {

@@ -68,7 +68,7 @@ function buildActions() {
       let actionButton = document.createElement("button");
       actionButton.innerHTML = actionNow.name;
       let method = actionNow.execute;
-      actionButton.addEventListener('click', (event) => method(event));
+      actionButton.addEventListener('click', (event) => method.call(actionNow, event));
       controls.appendChild(actionButton);
    }
    console.log("Were buttons built?")
