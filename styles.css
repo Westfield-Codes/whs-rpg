@@ -297,6 +297,9 @@ label{
   height: 25px;
 }
 
+#controls div {
+  display:inline-block;
+}
 
  /* #navCross {
  display: grid;
@@ -317,14 +320,7 @@ label{
 
 /*
 #navCross div:nth-child(1) { grid-area: 2 / 2; }
-
- 
 #navCross div:nth-child(2) { grid-area: 1 / 2; }
-
 #navCross div:nth-child(3) { grid-area: 2 / 3; }
-
-
 #navCross div:nth-child(4) { grid-area: 3 / 2; }
-
-
 #navCross div:nth-child(5) { grid-area: 2 / 1; } */
