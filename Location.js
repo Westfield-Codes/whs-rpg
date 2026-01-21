@@ -83,7 +83,7 @@ const locations = [
 	{
 		index: 3,
 	 	name: "Library",
-		coords: [0,2]
+		coords: [0,2],
 		text: "You are now in a long hall way that seems to go on both left and right. 0,2",
 		actions: []
 	},
